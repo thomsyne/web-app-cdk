@@ -25,7 +25,7 @@ export function createLoadBalancedFargateService(
     desiredCount: 1,
     taskImageOptions: {
       image: ecs.ContainerImage.fromRegistry(apiImageForECS),
-      containerPort: 8081,
+      containerPort: 80,
       executionRole: taskImageRole,
       environment: {
         PORT: '80',
