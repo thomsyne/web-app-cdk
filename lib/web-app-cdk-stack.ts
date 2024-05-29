@@ -16,13 +16,14 @@ export class WebAppCdkStack extends cdk.Stack {
 
     const appName = process.env.APP_NAME || 'web-app-tommy-taiwo';
 
-    // Create VPC and Security Group in the main stack
+    // VPC Creation
     const vpc = new ec2.Vpc(this, 'VPC', {
       vpcName: appName,
       enableDnsSupport: true,
       enableDnsHostnames: true,
     });
 
+    // Security Group and open ports
     const securityGroup = new ec2.SecurityGroup(this, 'MySecurityGroup', {
       securityGroupName: appName,
       vpc: vpc,
